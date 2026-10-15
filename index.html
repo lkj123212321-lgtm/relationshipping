@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090b12">
+  <meta name="description" content="以不確定性、朋友圈線索與多維關係數值為核心的文字互動遊戲。">
+  <title>曖昧關係模擬器</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="openingOverlay" class="overlay">
+    <div class="reveal-card">
+      <div class="reveal-icon">✦</div>
+      <p class="eyebrow">RANDOM OPENING</p>
+      <h1 id="revealTitle">正在抽取情境</h1>
+      <p id="revealSub" class="muted"></p>
+      <div id="revealMeta" class="reveal-meta"></div>
+      <button id="enterGame" class="primary">進入遊戲</button>
+      <button id="rerollOpening" class="ghost">重新抽取</button>
+    </div>
+  </div>
+
+  <div id="feedOverlay" class="overlay hidden">
+    <section class="feed-shell">
+      <header class="feed-header">
+        <div><p class="eyebrow pink">SOCIAL CIRCLE</p><h2>朋友圈</h2><p class="muted small">你只會看見角色選擇公開的片段。</p></div>
+        <button id="closeFeed" class="icon-btn" aria-label="關閉">×</button>
+      </header>
+      <nav id="feedFilters" class="filters"></nav>
+      <main id="feedList" class="feed-list"></main>
+    </section>
+  </div>
+
+  <div id="statsOverlay" class="overlay hidden">
+    <section class="stats-shell">
+      <header class="feed-header">
+        <div><p class="eyebrow amber">GAME MASTER</p><h2>隱藏關係數值</h2><p class="muted small">數值描述不同維度，不等於愛情答案。</p></div>
+        <button id="closeStats" class="icon-btn" aria-label="關閉">×</button>
+      </header>
+      <div id="statsList" class="stats-list"></div>
+    </section>
+  </div>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <section class="card brand-card">
+        <div id="openingIcon" class="logo">✦</div>
+        <div><p class="eyebrow">UNSAID</p><h1 id="openingTitle">曖昧關係模擬器</h1></div>
+        <div class="meta"><span id="metaTime"></span><span id="metaPlace"></span></div>
+      </section>
+
+      <button id="openFeed" class="feed-button">◎ 查看朋友圈 <span id="unreadBadge" class="unread">3</span></button>
+
+      <section class="card signals-card">
+        <div class="section-title"><span>可觀察的關係跡象</span><span>◉</span></div>
+        <div id="signals"></div>
+        <div class="signal relation"><b>關係定義</b><span id="relationLabel"></span></div>
+      </section>
+
+      <button id="openStats" class="side-button amber-border">主持人查看數值</button>
+      <button id="restart" class="side-button">隨機重開一局</button>
+      <p class="fineprint">朋友圈線索會改變已知情報、後續選項和部分角色反應，但不會直接公布真實關係。</p>
+    </aside>
+
+    <section class="game card">
+      <header class="game-header">
+        <div><p id="chapter" class="eyebrow">CHAPTER 01</p><h2 id="sceneTitle"></h2></div>
+        <span id="topRelation" class="pill"></span>
+      </header>
+      <div id="storyLog" class="story-log"></div>
+      <footer class="controls">
+        <div id="choices" class="choices"></div>
+        <div class="custom-row"><input id="customInput" maxlength="180" placeholder="輸入你要說的話或採取的行動……"><button id="sendCustom" class="send">➤</button></div>
+      </footer>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
